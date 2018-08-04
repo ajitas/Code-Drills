@@ -8,13 +8,19 @@
 // We will be defining this function right now and invoking it later
 function populateButtons() {
   var newButton = $("<button>");
+  newButton.attr("id","button-hello");
+  newButton.text("Hello");
+  $("#buttons-area").append(newButton);
 
+  newButton = $("<button>");
+  newButton.attr("id","button-world");
+  newButton.text("World");
+  $("#buttons-area").append(newButton);
 
-
-
-
-
-
+  newButton = $("<button>");
+  newButton.attr("id","button-clear");
+  newButton.text("Clear");
+  $("#buttons-area").append(newButton);
   // End of your code area
 }
 
@@ -28,15 +34,13 @@ $(function () {
 
   // This is the key press listener that saves the key the user pressed.
   // Refer to step 4 on the README
+  var buttonArea = document.getElementById("user-button-area");
+  var newButton = document.createElement("button");
+  buttonArea.appendChild(newButton);
+  newButton.setAttribute("id","userButton");
+  newButton.append("keyButton");
   document.onkeyup = function(event) {
-    // Your code goes here
-
-
-
-
-
-
-
+    newButton.value = newButton.value + event.key;
     // End of your code area
   }
 
@@ -44,15 +48,19 @@ $(function () {
   // which button was clicked and handle the logic for that button inside here
   // Refer to step 3 on the README
   $(document).on("click", "button", function (event) {
-    // Your code goes here
-
-
-
-
-
-
-
+    if($(this).text() == "Hello" || $(this).text() == "World"){
+      $("#output").append($(this).text());
+    }
+    else if($(this).text() == "Clear"){
+      $("#output").empty();
+    }
     // End of your code area
+  })
+  .on("click", "#user-button-area", function(){
+    $("#output").empty();
+    $("#output").append($("#userButton").val());
+    newButton.value="";
+
   })
 
 })
