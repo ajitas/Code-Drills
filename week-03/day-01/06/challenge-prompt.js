@@ -27,7 +27,12 @@ function returnCustomObject(arr){
 	var obj ={};
   
   // ---------- Your Code Here ----------
-
+  for(var i =0;i<toyArray.length; i++){
+    if(obj.hasOwnProperty(toyArray[i]))
+      obj[toyArray[i]] = obj[toyArray[i]] +1;
+    else
+    obj[toyArray[i]] = 1;
+  }
 
 
 
@@ -68,7 +73,15 @@ function greatestFrequency(toyInventory){
   var maxToy, maxNum;
   
   // ---------- Your Code Here ----------
-
+  maxNum = 0;
+  for(var property in toyInventoryObj){
+    if(toyInventoryObj.hasOwnProperty(property)){
+      if(parseInt(toyInventoryObj[property]) > maxNum){
+        maxNum = toyInventoryObj[property];
+        maxToy = property;
+      }
+    }
+  }
 
 
 
@@ -100,7 +113,9 @@ function toyArrToObj(arrayOfToys){
   var toyArrayOfObjs = [];
 
   // ---------- Your Code Here ----------
-
+for(var i =0;i<toyArray.length; i++){
+  toyArrayOfObjs.push({name:toyArray[i]});
+}
 
 
 
@@ -217,7 +232,28 @@ function createCustomObject(objectArr){
 	customToyLineObj = {};
 
   // ---------- Your Code Here ----------
+for(var i =0;i<toyInventoryArrayOfObjects.length; i++){
 
+  if(!customToyLineObj.hasOwnProperty(toyInventoryArrayOfObjects[i]["toyLine"])){
+        customToyLineObj[toyInventoryArrayOfObjects[i]["toyLine"]]={};
+        customToyLineObj[toyInventoryArrayOfObjects[i]["toyLine"]]["toyLine"] = toyInventoryArrayOfObjects[i]["toyLine"];
+  }
+
+  if(customToyLineObj[toyInventoryArrayOfObjects[i]["toyLine"]].hasOwnProperty("toyLineToys"))
+  {
+    customToyLineObj[toyInventoryArrayOfObjects[i]["toyLine"]]["toyLineToys"].push(toyInventoryArrayOfObjects[i]["title"]);
+  }
+  else
+  {
+    customToyLineObj[toyInventoryArrayOfObjects[i]["toyLine"]]["toyLineToys"] = [];
+    customToyLineObj[toyInventoryArrayOfObjects[i]["toyLine"]]["toyLineToys"].push(toyInventoryArrayOfObjects[i]["title"]);
+  }
+
+  if(customToyLineObj[toyInventoryArrayOfObjects[i]["toyLine"]].hasOwnProperty("totalToysInToyLine"))
+    customToyLineObj[toyInventoryArrayOfObjects[i]["toyLine"]]["totalToysInToyLine"]+= toyInventoryArrayOfObjects[i]["stock"]
+  else
+    customToyLineObj[toyInventoryArrayOfObjects[i]["toyLine"]]["totalToysInToyLine"]= toyInventoryArrayOfObjects[i]["stock"]
+}
 
 
 
@@ -262,7 +298,15 @@ console.log("==================== Question 05  ====================");
 function areDups(arr){
 
   // ---------- Your Code Here ----------
+  var objOfArray = {};
+  for(var i =0;i<arr.length; i++){
 
+    if(objOfArray.hasOwnProperty(arr[i]))
+      return true;
+    else
+      objOfArray[arr[i]] = 1;
+  }
+  return false;
 
 
 
