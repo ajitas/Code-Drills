@@ -7,6 +7,7 @@ $(document).ready(function(){
 
   $("#showinfo").on("click", function(){
 
+    console.log("triggering click");
     $("#userinfo").submit(function(e){
       return false;
     });

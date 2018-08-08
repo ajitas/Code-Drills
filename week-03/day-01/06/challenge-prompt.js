@@ -250,9 +250,9 @@ for(var i =0;i<toyInventoryArrayOfObjects.length; i++){
   }
 
   if(customToyLineObj[toyInventoryArrayOfObjects[i]["toyLine"]].hasOwnProperty("totalToysInToyLine"))
-    customToyLineObj[toyInventoryArrayOfObjects[i]["toyLine"]]["totalToysInToyLine"]+= toyInventoryArrayOfObjects[i]["stock"]
+    customToyLineObj[toyInventoryArrayOfObjects[i]["toyLine"]]["totalToysInToyLine"]+= toyInventoryArrayOfObjects[i]["stock"];
   else
-    customToyLineObj[toyInventoryArrayOfObjects[i]["toyLine"]]["totalToysInToyLine"]= toyInventoryArrayOfObjects[i]["stock"]
+    customToyLineObj[toyInventoryArrayOfObjects[i]["toyLine"]]["totalToysInToyLine"]= toyInventoryArrayOfObjects[i]["stock"];
 }
 
 
@@ -298,26 +298,25 @@ console.log("==================== Question 05  ====================");
 function areDups(arr){
 
   // ---------- Your Code Here ----------
+  //create an empty object
   var objOfArray = {};
   for(var i =0;i<arr.length; i++){
 
+    //if object already has a property of arr[i] then it already exists
     if(objOfArray.hasOwnProperty(arr[i]))
       return true;
     else
+    //make a new property
       objOfArray[arr[i]] = 1;
   }
   return false;
-
-
-
-
 
   // ---------- End of Code Area ----------
 
 }
 
 // These arrays are going to be used to test your function
-var duplicatesOne = [1,2,4,5,77,8,19,4];
+var duplicatesOne = [8,6,7,5,3,0,9,5];
 var duplicatesTwo = [32,4,60,56,78,3,9];
 
 // This should console log true:
