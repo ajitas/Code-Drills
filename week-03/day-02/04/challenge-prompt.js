@@ -21,7 +21,7 @@
 
 // This method just wraps our `fizzBuzzDataTypeChecker` call. You will not need to edit this function
 function fizzBuzzSuper(dataTypeInput){
-  izzBuzzDataTypeChecker(dataTypeInput);
+  fizzBuzzDataTypeChecker(dataTypeInput);
 }
 
 // This method should evaluate what the data type is and send it to the appropriate method
@@ -32,27 +32,34 @@ function fizzBuzzDataTypeChecker(dataTypeInput){
 
   // ---------- Your Code Here ----------
 
-
     //if the argument is an array then call the `dataTypeArray` function with it as an argument
-
+    if(Array.isArray(dataTypeInput))
+      dataTypeArray(dataTypeInput);
 
     //if the argument is an obj then call the `dataTypeObj` function with it as an argument
-
+    else if(typeof dataTypeInput === "object")
+      dataTypeObj(dataTypeInput);
 
     //if the argument is a string then call the `customIsNum` function with it as an argument to see if the string can be converted to an integer
+       //if the string argument can be converted into an integer then call the `fizzBuzzCalculation` function with it converted to an integer as an argument
+       //if the string argument cannot be converted into an integer then call the `consoleLogNonNumber` function with it as an argument
 
+    else if(typeof dataTypeInput === "string"){
+      if(customIsNum(dataTypeInput))
+        fizzBuzzCalculation(parseInt(dataTypeInput));
+      else
+      consoleLogNonNumber(dataTypeInput);
+    }
 
-      //if the string argument can be converted into an integer then call the `fizzBuzzCalculation` function with it converted to an integer as an argument
-
-
-      //if the string argument cannot be converted into an integer then call the `consoleLogNonNumber` function with it as an argument
 
 
     //if the argument is an integer, then call the `fizzBuzzCalculation` function with it as an argument
-
+    else if(typeof dataTypeInput == "number")
+    fizzBuzzCalculation(dataTypeInput);
     
     //if the argument is a boolean, then call the `consoleLogNonNumber` function with it as an argument
-
+    else if(typeof dataTypeInput == "boolean")
+    consoleLogNonNumber(dataTypeInput);
 
 
    // ----------- End Code Area -----------
@@ -70,7 +77,9 @@ function fizzBuzzDataTypeChecker(dataTypeInput){
 // function
 function dataTypeArray(dataTypeInput){
   // ---------- Your Code Here ----------
-
+for(var i =0;i<dataTypeInput.length; i++){
+  fizzBuzzDataTypeChecker(dataTypeInput[i]);
+}
 
 
 
@@ -88,7 +97,11 @@ function dataTypeArray(dataTypeInput){
 // type checker method
 function dataTypeObj(dataTypeInput){
   // ---------- Your Code Here ----------
-
+for(var property in dataTypeInput){
+  if(dataTypeInput.hasOwnProperty(property)){
+    fizzBuzzDataTypeChecker(dataTypeInput[property]);
+  }
+}
 
 
 
@@ -107,14 +120,23 @@ function dataTypeObj(dataTypeInput){
 // within our iterations
 function fizzBuzzCalculation(input){
   // ---------- Your Code Here ----------
-
+  if(input%15 === 0)
+    console.log("fizzBuzz");
+  else if(input % 5 === 0){
+    console.log("Buzz");
+  }
+  else if(input % 3 === 0)
+    console.log("Fizz");
+  else
+    console.log(input);
+}
 
 
 
 
 
   // ----------- End Code Area -----------
-}
+
 
 
 // This method takes in the argument and simply console logs both the argument 
@@ -126,7 +148,7 @@ function fizzBuzzCalculation(input){
 function consoleLogNonNumber(input){
   // ---------- Your Code Here ----------
 
-
+console.log(input + " IS NOT A NUMBER");
 
 
 
