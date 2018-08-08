@@ -8,7 +8,13 @@
 function checkDivisors(arr) {
 
   // ---------- Your Code Here ----------
-
+for(var i =0;i<arr.length; i++){
+  for(var j = 0;j<arr.length ;j++){
+    if(i!=j && arr[i]%arr[j] === 0)
+      return true;
+  }
+}
+return false;
 
 
 
