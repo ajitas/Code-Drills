@@ -123,26 +123,27 @@
           
           for(var i =0;i<response["events"].length;i++){
 
-          var placeholderDiv = $("<div class = 'eventPic-holder'>");
-          var logoImage = $("<img>");
-          logoImage.attr("src",response["events"][i]["logo"]["original"]["url"]);
-          logoImage.attr("class","eventPic");
+           var placeholderDiv = $("<div>");
+           placeholderDiv.attr("class","eventPic-holder");
+            var logoImage = $("<img>");
+            logoImage.attr("src",response["events"][i]["logo"]["original"]["url"]);
+            logoImage.attr("class","eventPic");
 
-          placeholderDiv.append(logoImage);
+            placeholderDiv.append(logoImage);
+            $(".appendHere").append(placeholderDiv);
 
-          var eventName = $("<div>");
-          eventName.attr("class","eventName");
-          eventName.html(response["events"][i].name.html);
+            var h1Tag = $("<h1>");
+            h1Tag.attr("class","eventName");
+            h1Tag.text(response["events"][i].name.text);
 
-          placeholderDiv.append("<h1>",eventName,"</h1>");
+            $(".appendHere").append(h1Tag);
 
-          var desc = $("<div>");
-          desc.attr("class","eventText");
-          desc.html(response["events"][i].description.html);
+            var pTag = $("<p>");
+            pTag.attr("class","eventText");
+            pTag.text(response["events"][i].description.text);
 
-          placeholderDiv.append("<p>",desc,"</p>");
-
-          $(".appendHere").append(placeholderDiv);
+            $(".appendHere").append(pTag);
+            $(".appendHere").append("<hr>");
 
           }
           // Display the results in the appropriate element on the DOM
