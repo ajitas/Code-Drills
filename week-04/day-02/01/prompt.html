@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+
+
+  <script>
+
+    function distance(str1, str2){
+
+      var difference = 0;
+        for(var i = 0; i<str1.length; i++){
+            if(str1[i] !== str2[i]){
+              difference++;
+            }
+          }
+        return difference;
+  }
+    function levensthein(str1, str2) {
+      // =============== YOUR WORK HERE ======================
+      var str11, str22;
+      if(str1.length <str2.length){
+        str11 = str1;
+        str22 = str2;
+      }
+      else{
+        str11 = str2;
+        str22 = str1;
+      }
+      var difference = 0;
+      for(var i = 0; i<str11.length; i++){
+          if(str11[i] !== str22[i]){
+            difference++;
+          }
+      }
+      return (difference + (str22.length - str11.length));
+
+
+      
+      // =====================================================
+    }
+
+    console.log(levensthein("robert", "robbery"))
+    console.log(levensthein("yeah", "lmno"))
+    console.log(levensthein("yo", "yo"))
+    console.log(levensthein("l", "length"))
+    console.log(levensthein("sitting", "kitten"))
+
+  </script>
+
+</body>
+
+</html>

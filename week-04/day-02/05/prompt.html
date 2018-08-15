@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+
+  <script>
+var sentence = "It is our choices, that show what we truly are, far more than our abilities"
+
+function longestWord(sen) {
+    // ====================== YOUR WORK HERE ===================
+var strArray = sen.split(" ");
+var maxLength=0;
+var index = -1;
+for(var i =0;i<strArray.length;i++){
+  if(strArray[i][strArray[i].length-1] === ",")
+    strArray[i] = strArray[i].split(",")[0];
+  if(maxLength < strArray[i].length){
+    maxLength = strArray[i].length;
+    index = i;
+  }
+}
+console.log(strArray);
+return strArray[index];
+
+
+
+  //Bonus: Make it so that punctuation is not counted in the length of a word.
+
+
+    // =========================================================
+  
+  }
+console.log(longestWord(sentence))
+
+
+  </script>
+  
+</body>
+</html>
