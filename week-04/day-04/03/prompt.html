@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+var array = [3,5,12,4,19,1,18];
+var target = 22;
+
+function getSum(arr, trg) {
+
+//==================== YOUR WORK HERE ===================
+var index1 = -1;
+var index2 = -1;
+for(var i =0;i<arr.length-1;i++){
+    index1 = i;
+  for(var j = i+1;j<arr.length;j++){
+    if(arr[i] + arr[j] === trg){
+      index2 = j;
+      i = arr.length;
+      break;
+    }
+  }
+}
+return [index1,index2];
+
+
+
+//=======================================================
+}
+
+console.log(getSum(array, target))
+
+  </script>
+</body>
+</html>

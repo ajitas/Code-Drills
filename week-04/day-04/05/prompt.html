@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+    var roman = "MMMDCCLXXXII"
+    var roman2 = "IX"
+    var roman3 = "CMXLIV"
+
+    function convertRoman(str) {
+    
+    // ====================== YOUR WORK HERE ======================
+      var l = str.length;
+	    var res = 0;
+	    for(var i=0; i<l; i++)
+	    {
+	        if(str[i]==='I')
+	            res= res+1;
+	        else if(str[i]==='V')
+	        {
+	            if((str[i-1])==='I')
+	                res=res+3;
+	            else
+	                res= res+5;
+	        }
+	        else if(str[i]==='X')
+	        {
+	            if((str[i-1])==='I')
+	                res=res+8;
+	            else
+	                res= res+10;
+	        }
+	        else if(str[i]==='L')
+	        {
+	            if((str[i-1])==='X')
+	                res=res+30;
+	            else
+	                res= res+50;
+	        }
+	        else if(str[i]==='C')
+	        {
+	            if((str[i-1])==='X')
+	                res=res+80;
+	            else
+	                res= res+100;
+	        }
+	        else if(str[i]==='D')
+	        {
+	            if((str[i-1])==='C')
+	                res=res+300;
+	            else
+	                res= res+500;
+	        }
+	        else if(str[i]==='M')
+	        {
+	            if((str[i-1])==='C')
+	                res=res+800;
+	            else
+	                res= res+1000;
+	        }
+	    }
+
+      return res;
+
+    // ============================================================
+    
+    
+    }
+
+    
+
+
+console.log(convertRoman(roman))
+console.log(convertRoman(roman2))
+console.log(convertRoman(roman3))
+
+  </script>
+</body>
+</html>
