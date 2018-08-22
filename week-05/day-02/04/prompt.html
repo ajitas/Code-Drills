@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+
+    var movements = "UUURDLURLDDRDLLLLRRUUDDDRLRA";
+
+
+    function backToSquareOne(moves) {
+// ===================== YOUR WORK HERE =====================
+var upDownPosition =0;
+var leftRightPosition =0;
+for(var i=0;i<movements.length;i++){
+  if(movements[i] === "U"){
+    upDownPosition++;
+  }
+  else if(movements[i] === "D"){
+    upDownPosition--;
+  }
+  else if(movements[i] === "L"){
+    leftRightPosition--;
+  }
+  else if(movements[i] === "R"){
+    leftRightPosition++;
+  }
+  else{
+    return ("Incorrect character: "+ movements[i]);
+  }
+}
+
+  if(upDownPosition === 0 && leftRightPosition === 0)
+    return true;
+  else
+    return false;
+
+
+
+
+// ==========================================================
+
+    }
+  //Returns true
+    console.log(backToSquareOne(movements))
+  </script>
+</body>
+</html>
