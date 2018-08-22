@@ -18,24 +18,32 @@
 // ===================== YOUR WORK HERE =====================
 var strArray1 = sent1.split(" ");
 var strArray2 = sent2.split(" ");
+var obj={};
 var resultArray=[];
 
 for(var i =0;i<strArray1.length;i++){
-  for(var j =0;j<strArray2.length;j++){
-    if(strArray1[i] === strArray2[j]){
-      strArray1.splice(i,1);
-      strArray2.splice(j,1);
-      i--;
-      j--;
+  if(!obj[strArray1[i]]){
+    obj[strArray1[i]] = 1;
+  }
+  else
+  obj[strArray1[i]]++;
+}
+
+for(var i =0;i<strArray2.length;i++){
+  if(!obj[strArray2[i]]){
+    obj[strArray2[i]] = 1;
+  }
+  else
+  obj[strArray1[i]]++;
+}
+console.log(obj);
+for(prop in obj){
+  if(obj.hasOwnProperty(prop)){
+    if(obj[prop] === 1){
+      resultArray.push(prop);
     }
   }
 }
-for(var i =0;i<strArray1.length;i++)
-  resultArray.push(strArray1[i]);
-
-for(var i =0;i<strArray2.length;i++)
-  resultArray.push(strArray2[i]);
-
 return resultArray;
 
 // ==========================================================
