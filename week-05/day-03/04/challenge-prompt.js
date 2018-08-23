@@ -1,0 +1,73 @@
+console.log("////////////////////////////// QUESTION 4.1 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\")
+/*Write a function called "removeNumbersLessThan".
+
+Given a number and an object, "removeNumbersLessThan" removes any properties whose values are numbers less than the given number.
+
+Starter Code :*/
+function removeNumbersLessThan(num, obj) {
+  // your code here
+  for(var prop in obj){
+    if(obj.hasOwnProperty(prop)){
+      if(obj[prop]<num){
+        delete obj[prop];
+      }
+    }
+  }
+  return obj;
+  
+
+  
+  // code ends here
+}
+
+var obj = {
+  a: 8,
+  b: 2,
+  c: 'montana'
+}
+removeNumbersLessThan(5, obj);
+console.log(obj); // --> { a: 8, c: 'montana' }
+
+
+console.log("////////////////////////////// QUESTION 4.2 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\")
+
+/*Write a function called "elementsGreaterThan10".
+
+Given an object and a key, "elementsGreaterThan10" reads the array located at that key and returns a new array containing only the values from the array in the object that are greater than 10 
+
+returns an array containing elements that are greater than 10 from the array located at the argument key within the argument object.
+
+Notes:
+* If the array is empty, it should return an empty array.
+* If the array contains no elements greater than 10, it should return an empty array.
+* If the property at the given key is not an array, it should return an empty array.
+* If there is no property at the key, it should return an empty array. 
+
+Starter Code :*/
+function elementsGreaterThan10(obj, key) {
+  // your code here
+
+  var resultArray=[];
+  if((!(obj[key])) || !(Array.isArray(obj[key])) || (obj[key].length === 0))
+    return [];
+  else{
+    for(var i =0;i<obj[key].length;i++){
+      if(obj[key][i]>10){
+        resultArray.push(obj[key][i]);
+      }
+    }
+  }
+  
+return resultArray;
+
+
+
+
+
+  // code ends here
+}
+var obj = {
+  key: [1, 20, 30]
+};
+var output = elementsGreaterThan10(obj, 'key');
+console.log(output); // --> [20, 30]
