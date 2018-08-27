@@ -15,7 +15,7 @@ inquirer.prompt([{
           
          console.log("City: "+JSON.parse(body).name);
          console.log("Country: "+JSON.parse(body).sys.country);
-         console.log("Temp: "+JSON.parse(body).main.temp);
+         console.log("Weather: "+JSON.parse(body).weather[0].main);
           
       }
     });
