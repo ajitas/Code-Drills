@@ -9,6 +9,9 @@ function onlyOnce() {
   // -------------------- Your Code Here --------------------
 
 console.log("I AM RUNNING!");
+onlyOnce = function(){
+  return(null);
+}
 return true;
 
   // -------------------- End Code Area ---------------------
@@ -16,8 +19,5 @@ return true;
 
 // Small Tests for your convenience
 console.log(onlyOnce())
-onlyOnce = function(){
-  return(null);
-}
 console.log(onlyOnce())
 console.log(onlyOnce())
